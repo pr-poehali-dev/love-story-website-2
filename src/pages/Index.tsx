@@ -85,7 +85,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
             <Icon name="Heart" className="w-16 h-16 text-primary mx-auto animate-float" />
-            <h1 className="text-6xl md:text-8xl font-serif font-bold text-primary text-shadow">
+            <h1 className="text-6xl md:text-8xl font-serif font-bold text-primary text-glow-strong">
               Наша Любовь
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light">
@@ -115,7 +115,7 @@ const Index = () => {
       <section id="gallery" className="min-h-screen py-20 animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Галерея Моментов</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary text-glow mb-4">Галерея Моментов</h2>
             <p className="text-lg text-muted-foreground">Наши любимые фотографии</p>
           </div>
           
@@ -146,7 +146,7 @@ const Index = () => {
       <section id="moments" className="min-h-screen py-20 bg-black/20 backdrop-blur-sm animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Особенные Моменты</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary text-glow mb-4">Особенные Моменты</h2>
             <p className="text-lg text-muted-foreground">Даты, которые мы никогда не забудем</p>
           </div>
 
@@ -177,7 +177,7 @@ const Index = () => {
       <section id="letters" className="min-h-screen py-20 animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Письма Любви</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary text-glow mb-4">Письма Любви</h2>
             <p className="text-lg text-muted-foreground">Слова, идущие от сердца</p>
           </div>
 
