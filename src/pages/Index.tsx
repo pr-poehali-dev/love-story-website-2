@@ -47,6 +47,14 @@ const Index = () => {
     { id: 2, from: 'Для меня', preview: 'Ты мой дом, моя опора, моя любовь...', content: 'Ты мой дом, моя опора, моя любовь. С тобой я чувствую себя в безопасности и счастливой. Каждое утро просыпаюсь с улыбкой, зная, что ты рядом. Ты - лучшее, что случилось в моей жизни.' },
   ];
 
+  const timeline = [
+    { year: '2024', month: 'Январь', event: 'Первая встреча в кафе' },
+    { year: '2024', month: 'Февраль', event: 'Первое свидание' },
+    { year: '2024', month: 'Март', event: 'Путешествие вместе' },
+    { year: '2024', month: 'Апрель', event: 'Знакомство с родителями' },
+    { year: '2024', month: 'Май', event: 'Первая годовщина' },
+  ];
+
   const scrollToSection = (section: string) => {
     setActiveSection(section);
     const element = document.getElementById(section);
@@ -56,13 +64,13 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-primary/20">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-peach-50">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-pink-100">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-serif font-bold text-primary">Наша История</h1>
             <div className="flex gap-6">
-              {['home', 'gallery', 'moments', 'letters'].map((section) => (
+              {['home', 'gallery', 'moments', 'letters', 'timeline'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -74,6 +82,7 @@ const Index = () => {
                   {section === 'gallery' && 'Галерея'}
                   {section === 'moments' && 'Моменты'}
                   {section === 'letters' && 'Письма'}
+                  {section === 'timeline' && 'История'}
                 </button>
               ))}
             </div>
@@ -85,14 +94,14 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
             <Icon name="Heart" className="w-16 h-16 text-primary mx-auto animate-float" />
-            <h1 className="text-6xl md:text-8xl font-serif font-bold text-primary text-glow-strong">
+            <h1 className="text-6xl md:text-8xl font-serif font-bold text-primary text-shadow">
               Наша Любовь
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light">
               История двух сердец, бьющихся в унисон
             </p>
             
-            <div className="mt-12 p-8 bg-black/60 backdrop-blur-sm rounded-3xl border-2 border-primary/20 inline-block animate-scale-in">
+            <div className="mt-12 p-8 bg-white/60 backdrop-blur-sm rounded-3xl border-2 border-primary/20 inline-block animate-scale-in">
               <p className="text-sm text-muted-foreground mb-2">Вместе уже</p>
               <p className="text-6xl font-serif font-bold text-primary">{daysTogether}</p>
               <p className="text-sm text-muted-foreground mt-2">дней</p>
@@ -115,7 +124,7 @@ const Index = () => {
       <section id="gallery" className="min-h-screen py-20 animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-serif font-bold text-primary text-glow mb-4">Галерея Моментов</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Галерея Моментов</h2>
             <p className="text-lg text-muted-foreground">Наши любимые фотографии</p>
           </div>
           
@@ -143,10 +152,10 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="moments" className="min-h-screen py-20 bg-black/20 backdrop-blur-sm animate-fade-in-up">
+      <section id="moments" className="min-h-screen py-20 bg-white/40 backdrop-blur-sm animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-serif font-bold text-primary text-glow mb-4">Особенные Моменты</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Особенные Моменты</h2>
             <p className="text-lg text-muted-foreground">Даты, которые мы никогда не забудем</p>
           </div>
 
@@ -154,7 +163,7 @@ const Index = () => {
             {moments.map((moment, index) => (
               <Card 
                 key={moment.id}
-                className="p-6 hover-scale cursor-pointer transition-all duration-300 hover:shadow-xl bg-card backdrop-blur-sm border-2 border-primary/10"
+                className="p-6 hover-scale cursor-pointer transition-all duration-300 hover:shadow-xl bg-white/80 backdrop-blur-sm border-2 border-primary/10"
                 style={{ animationDelay: `${index * 0.15}s` }}
                 onClick={() => setSelectedMoment(moment.id)}
               >
@@ -177,7 +186,7 @@ const Index = () => {
       <section id="letters" className="min-h-screen py-20 animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-serif font-bold text-primary text-glow mb-4">Письма Любви</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Письма Любви</h2>
             <p className="text-lg text-muted-foreground">Слова, идущие от сердца</p>
           </div>
 
@@ -185,7 +194,7 @@ const Index = () => {
             {letters.map((letter, index) => (
               <Card 
                 key={letter.id}
-                className="p-8 hover-scale cursor-pointer transition-all duration-300 hover:shadow-xl bg-card backdrop-blur-sm border-2 border-primary/10"
+                className="p-8 hover-scale cursor-pointer transition-all duration-300 hover:shadow-xl bg-white/80 backdrop-blur-sm border-2 border-primary/10"
                 style={{ animationDelay: `${index * 0.2}s` }}
                 onClick={() => setSelectedLetter(letter.id)}
               >
@@ -202,7 +211,39 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 text-center bg-black/60 backdrop-blur-sm border-t border-primary/20">
+      <section id="timeline" className="min-h-screen py-20 bg-white/40 backdrop-blur-sm animate-fade-in-up">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl font-serif font-bold text-primary mb-4">Наша История</h2>
+            <p className="text-lg text-muted-foreground">Путь, который мы прошли вместе</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="relative">
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20"></div>
+              
+              {timeline.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="relative pl-20 pb-12 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className="absolute left-5 top-2 w-6 h-6 bg-primary rounded-full border-4 border-background"></div>
+                  <Card className="p-6 bg-white/80 backdrop-blur-sm border-2 border-primary/10 hover-scale">
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="text-2xl font-serif font-bold text-primary">{item.month}</span>
+                      <span className="text-sm text-muted-foreground">{item.year}</span>
+                    </div>
+                    <p className="text-foreground font-medium">{item.event}</p>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="py-12 text-center bg-white/60 backdrop-blur-sm border-t border-pink-100">
         <div className="container mx-auto px-4">
           <Icon name="Heart" className="w-8 h-8 text-primary mx-auto mb-4 animate-float" />
           <p className="text-muted-foreground">
